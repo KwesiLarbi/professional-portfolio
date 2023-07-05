@@ -16,12 +16,17 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import logo from './logo.svg';
-import './App.css';
-
-// TODO: Remove initial create-react files and styles
-// TODO: Remove initial code out of app file
-// TODO: Add emoji image above full name
+// TODO: Remove initial create-react files and styles (done)
+// TODO: Remove initial code out of app file (done)
+// TODO: Add Image
+// TODO: Add about me section
+// TODO: Add skills section
+// TODO: Create button where resume can be downloaded as PDF
+// TODO: Create GitHub section
+// TODO: GET GitHub data (contributions, repositories)
+// TODO: Create heat map similar to github showing contributions
+// TODO: GET total contributions and display above Heatmap
+// TODO: Have repositories listed in column format on the left of heatmap
 
 function Copyright() {
   return (
@@ -149,27 +154,7 @@ function ProfesionalPortfolio() {
 }
 
 function App() {
-  return (
-    <>
-      <ProfesionalPortfolio />
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    </>
-  );
+  return <ProfesionalPortfolio />;
 }
 
 export default App;
