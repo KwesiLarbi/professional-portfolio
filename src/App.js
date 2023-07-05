@@ -14,13 +14,13 @@ import {
   CardContent,
   CardActions
 } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
 // TODO: Remove initial create-react files and styles (done)
 // TODO: Remove initial code out of app file (done)
-// TODO: Add Image
-// TODO: Add about me section
-// TODO: Add skills section
+// TODO: Add Image (done)
+// TODO: Add about me section (done)
+// TODO: Add skills section (done)
 // TODO: Create button where resume can be downloaded as PDF
 // TODO: Create GitHub section
 // TODO: GET GitHub data (contributions, repositories)
@@ -54,6 +54,83 @@ const defaultTheme = createTheme();
 
 const projectData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+const skillsData = [
+  "JavaScript", 
+  "TypeScript", 
+  "Node.js", 
+  "React.js", 
+  "MongoDB", 
+  "Postgres", 
+  "Go"
+];
+
+const Img = styled('img')({
+  margin: "auto",
+  display: "block",
+  maxWidth: "100%",
+  maxHeight: "100%"
+})
+
+// Components
+function AutoScrollHorizontalList({ skills }) {
+  return (
+    <>
+      {skills.map((skill) => (
+        <Typography key={skill}>{skill}</Typography>
+      ))}
+    </>
+  );
+}
+
+// Sections
+function SkillsSection() {
+  return (
+    <Box>
+      <Typography>My Skills</Typography>
+      <AutoScrollHorizontalList skills={skillsData} />
+    </Box>
+  );
+}
+
+function AboutMeSection() {
+  return (
+    <Box
+      sx={{
+        pt: 8,
+        pb: 6,
+        flexGrow: 1
+      }}
+    >
+      <Container maxWidth="xl">
+        <Grid container spacing={2}>
+          <Grid item>
+            <Img src="/images/kwesi_image.jpeg" alt="Kwesi Larbi" />
+          </Grid>
+          <Grid item xs={12} md container>
+            <Grid item xs container direction="column" spacing={2}>
+              <Typography
+                variant="h2"
+                align="left"
+                color="text.primary"
+                gutterBottom
+              >
+                Kwesi Larbi
+              </Typography>
+              <Typography variant="h5" align="left" color="text.secondary" paragraph>
+                Dolor morbi non arcu risus quis. Vitae tempus quam pellentesque nec nam. Dui accumsan sit amet nulla facilisi morbi tempus iaculis urna. Nisi scelerisque eu ultrices vitae auctor.
+              </Typography>
+            </Grid>
+            <Grid item>
+              <SkillsSection />
+              <Button variant="contained">Download My Resume</Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  );
+}
+
 function ProfesionalPortfolio() {
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -65,38 +142,7 @@ function ProfesionalPortfolio() {
       </AppBar>
       <main>
         {/* First Section */}
-        <Box
-          sx={{
-            pt: 8,
-            pb: 6
-          }}
-        >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Kwesi Larbi
-            </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
-            </Stack>
-          </Container>
-        </Box>
+        <AboutMeSection />
         {/* End of First Section */}
         <Container sx={{ py: 8 }} maxWidth="md">
           <Grid container spacing={4}>
